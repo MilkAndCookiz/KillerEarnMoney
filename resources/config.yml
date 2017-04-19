@@ -1,0 +1,10 @@
+#KillerEarnMoney by @ImCookieGame
+#
+#Money to Killer
+Money: 10
+#
+#Economy Plugin
+Economy-Plugin: Economy
+#
+#Message to Killer
+Message: "§aYou got $@coins for killing§d @player §a!"
