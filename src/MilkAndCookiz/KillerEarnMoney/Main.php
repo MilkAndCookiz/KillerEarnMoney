@@ -1,5 +1,17 @@
 <?php
 
+ /**
+ *  _____   ______   ______   _  _   _   ______
+ * |  _ _| |  __  | |  __  | | |/ / |_| |  ____|
+ * | |     | |  | | | |  | | |   /   _  | |___
+ * | |     | |  | | | |  | | |  (   | | |  ___|
+ * | |_ _  | |__| | | |__| | |   \  | | | |____
+ * |_____| |______| |______| |_|\_\ |_| |______|
+ *
+ * Coded by MilkAndCookiz.
+ *
+**/
+
 namespace MilkAndCookiz\KillerEarnMoney;
 
 //Internal
@@ -14,7 +26,9 @@ use pocketmine\Player;
 use onebone\economyapi\EconomyAPI;
 
 class Main extends PluginBase implements Listener{
-
+	
+    private $prefix = "[KEM] ";
+	
     public function onLoad() {
         $this->getServer()->getLogger()->info(TF::BLUE . "Loading...");
     }
@@ -39,8 +53,8 @@ class Main extends PluginBase implements Listener{
             if($killer instanceof Player) {
                 $message1 = str_replace("@coins", $this->getConfig()->get("money"), $this->getConfig()->get("message"));
                 $message2 = str_replace("@player", $killer->getName(), $message1);
-				$killer->sendMessage($message2);
-				EconomyAPI::getInstance()->addMoney($killer->getName(), $this->config->get("money"));
+		$killer->sendMessage($message2);
+		EconomyAPI::getInstance()->addMoney($killer->getName(), $this->config->get(TF::RED . $prefix . TF::RESET . "money"));
             }
         }
     }
